@@ -44,3 +44,5 @@ Route::get('Student/{id}/edit','StudentController@edit');
 Route::post('dynamic_dependent/fetch', 'EduCenterController@fetch')->name('dynamicdependent.fetch');
 
 Route::post('dynamic_dependent/fetch', 'StudentController@fetch')->name('dynamicdependent.fetch');
+
+Route::get('/report/export', 'ReportExportController@export');
