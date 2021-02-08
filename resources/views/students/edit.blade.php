@@ -63,6 +63,13 @@
       </div>
     </div>
 
+    <div class="row">
+      <div class="form-group col">
+        <label for="payment_summ">payment_summ</label>
+        <input type="payment_summ" name="payment_summ"  class="form-control" id="payment_summ" placeholder="{{$student->payment_summ}}" required>
+      </div>
+    </div>
+
     <!-- <div class="row">
     <div class="form-group">
       <div class="form-group col">

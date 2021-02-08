@@ -9,6 +9,7 @@ use App\Student;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use App\Regions ;
+use App\Cities;
 
 class EduCenterController extends Controller
 {
@@ -16,9 +17,13 @@ class EduCenterController extends Controller
     public function index()
     {
         
-        $user = auth()->user();  
-        $students = Student::where('center_id', $user->edu_center_id)->get();
-        return view('roles.eduCenter')->with('students', $students );
+        $isAuth = auth()->check();
+        if($isAuth) {
+            $students = Student::where('center_id', auth()->user()->edu_center_id)->get();
+            return view('roles.eduCenter')->with('students', $students );
+        }   else {
+            return redirect('login');
+        }
     }
 
     public function adminpanel() 
@@ -55,7 +60,12 @@ class EduCenterController extends Controller
     public function show($id)
     {
         $EduCenters = EduCenter::find($id);
-        return view('centers.showCenter')->with('EduCenters', $EduCenters );
+        $region = Regions::where('id', $EduCenters->region_id)->first(); 
+        $city = Cities::where('id' , $EduCenters->city_id)->first();
+        $EduCenters->region;
+        $EduCenters->city;
+        // dd($region);
+        return view('centers.showCenter', ['EduCenters' => $EduCenters, 'region' => $region ]);
     }
 
     public function store(Request $request)

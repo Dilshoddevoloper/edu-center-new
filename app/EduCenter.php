@@ -21,4 +21,12 @@ class EduCenter extends Model
     public function User(){
         return   $this->belongsTo('App\User');
     }
+
+    public function region() {
+        return $this->belongsTo('App\Regions'); 
+     }
+ 
+     public function city() {
+        return $this->belongsTo('App\Cities'); 
+      }
 }

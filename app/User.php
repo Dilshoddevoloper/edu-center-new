@@ -38,4 +38,11 @@ class User extends Authenticatable
     public function EduCenter(){
         return $this->hasMany('App\EduCenter');
     }
+
+    public function roleName()
+    {
+        $user = auth()->user();
+        $role = Role::where('id', $user->role_id )->first();;
+        return $role->name;
+    }
 }

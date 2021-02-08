@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker; 
 
-class ScienceTableSeeder extends Seeder
+class PaymentSummComulnSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,12 +12,10 @@ class ScienceTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 9927; $i++)
+        for ($i = 20; $i < 30; $i++)
         { 
-        DB::table('students')
-        ->where('id', $i)
-        ->update([
-                'science_id' =>rand(1,10),
+        DB::table('students')->update([
+                'payment_summ' =>rand(100,900),
             
         ]);
                 

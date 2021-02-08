@@ -15,7 +15,7 @@ class Student extends Model
 
     protected $fillable = [
         'first_name', 'last_name', 'date_birth' , 'TIN' , 'email', 'address', 'tell_number', 'center_id',
-        'region_id', 'city_id', 'science_id'
+        'region_id', 'city_id', 'science_id', "payment_summ"
     ];
 
     public function region() {

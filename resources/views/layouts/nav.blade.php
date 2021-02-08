@@ -9,6 +9,9 @@
         <a class="nav-link" href="/login">Kirish</a>
       @endguest
       @auth
+        @if (auth()->user()->roleName() == 'admin' )
+          <a class="nav-link" href="/report"> Report</a>
+        @endif
         <a class="nav-link ml-auto" href="#">{{ Auth::user()->name }}</a>
         <a class="nav-link" href="/logout"> Log out</a>
       @endauth
