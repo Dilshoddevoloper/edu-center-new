@@ -17,7 +17,7 @@ class ScienceTableSeeder extends Seeder
         ->where('id', $i)
         ->update([
                 'science_id' =>rand(1,10),
-            
+
         ]);
                 
         }

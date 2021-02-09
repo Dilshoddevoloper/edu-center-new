@@ -51,7 +51,7 @@ class ReportController extends Controller
             ->groupBy('regions.id')
             ->orderBy('regions.c_order')
             ->get();
-
+                // dd($science9);
             $student1 = DB::table('regions')
             ->leftJoin('students', 'students.region_id', '=', 'regions.id' ) 
             ->select('regions.name_en as region_name', 'regions.id as region_id',
