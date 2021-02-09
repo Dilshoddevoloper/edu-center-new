@@ -37,8 +37,8 @@ Route::get('/adminpanel/{id}','EduCenterController@show');
 Route::get('/educenter/{id}','StudentController@show');
 
 Route::resource('student','StudentController');
-Route::delete('Student/{id}','StudentController@destroy')->name('Student.destroy'); // manabuyerda katta harflarni kichik harfga amashtirib chiq
-Route::delete('Student','StudentController@update')->name('Student.update'); // shu yerga ham resource qilsak
+Route::delete('Student/{id}','StudentController@destroy')->name('Student.destroy'); 
+Route::delete('Student','StudentController@update')->name('Student.update'); 
 Route::get('Student/{id}/edit','StudentController@edit');
 
 Route::post('dynamic_dependent/fetch', 'EduCenterController@fetch')->name('dynamicdependent.fetch');

@@ -31,7 +31,6 @@ class StudentController extends Controller
         $data =DB::table('cities')
                 ->where('region_id', $value)
                 ->get();
-                // dd($data);
         $output = '<option value="">Select '.ucfirst($dependent).'</option>';
         foreach($data as $row)
         {
@@ -62,10 +61,8 @@ class StudentController extends Controller
             'login' => 'required',
             'password' =>'required'
         ]);
-        // validatsiyadan otmagani uchun orqaga qaytarib yuborgan, 
-        // san error larni chiqarishni qilmaganing uchun error message ni korsatmayapti
-        $user = auth()->user(); // nega 2 ta r
-        // nega requestda region deb nomlagansan, senga region kelmaydiku, region_id keladi hozi tog`irlab qo`yaman
+    
+        $user = auth()->user(); 
         $student = Student::create([ 
             'science_id'=>$request->science_id,
             'region_id'=>$request->region_id,
@@ -81,9 +78,9 @@ class StudentController extends Controller
 
         ]);
         $user = auth()->user();
-        User::create([ // bu aslida kerak emas, bizga yaratsa boldi uni olib qayerdadir ishlatmagankusan
-            'edu_center_id' => $user->edu_center_id, // bu user da edu_center_id bo'lmaydi, null tushuntirgandimu
-            'role_id' => 3,  // nimaga edu_center_id bo`lmaydi, student qaysi centerdan ekanligini bilish uchun kerakku
+        User::create([ 
+            'edu_center_id' => $user->edu_center_id, 
+            'role_id' => 3,  
             'student_id' => $student->id, 
             'name' => $request->name,
             'login' => $request->login,
