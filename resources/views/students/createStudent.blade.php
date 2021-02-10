@@ -108,8 +108,8 @@
   <div class="row">
     <div class="form-group">
       <div class="form-group col">
-        <label for="name"> Name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="name" required>
+        <label for="name1"> Name</label>
+        <input type="text" name="name" class="form-control" id="name1" placeholder="name" required>
       </div>
     </div>
  

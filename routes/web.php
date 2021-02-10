@@ -41,7 +41,7 @@ Route::delete('Student/{id}','StudentController@destroy')->name('Student.destroy
 Route::delete('Student','StudentController@update')->name('Student.update'); 
 Route::get('Student/{id}/edit','StudentController@edit');
 
-Route::post('dynamic_dependent/fetch', 'EduCenterController@fetch')->name('dynamicdependent.fetch');
+Route::post('dynamic_dependent1/fetch', 'EduCenterController@fetch')->name('dynamicdependent1.fetch');
 
 Route::post('dynamic_dependent/fetch', 'StudentController@fetch')->name('dynamicdependent.fetch');
 

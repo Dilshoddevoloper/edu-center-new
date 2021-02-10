@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    $name = "sdfdsfgdf";
-    public function report() {
-        
-    }
     public function index()
     {
         $raw1 = 'count(edu_centers.id) as edu_center_count';

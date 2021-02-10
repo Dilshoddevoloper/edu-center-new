@@ -12,8 +12,8 @@
 
     <div class='row'>  
       <div class="form-group col">
-        <label for="name">Edu Center Name</label>
-        <input type="text" name="name" class="form-control" id="name" placeholder="name" required>
+        <label for="name1">Edu Center Name</label>
+        <input type="text" name="name" class="form-control" id="name1" placeholder="name" required>
       </div>
       
       <div class="form-group col">
@@ -129,7 +129,7 @@
 <script>
 
 $(document).ready(function(){ // id ishlatsang # bilan, class ishlatsng . bilan
-  $('#region').change(function(){ // manabuyerda yozilgan $('.dynamic).change  nima deb oylaysan, 
+  $('#region_id').change(function(){ // manabuyerda yozilgan $('.dynamic).change  nima deb oylaysan, 
   // anig`ini bilmadim, balki dinamik malumotku bu, shu tanlanganda degani bo`lsa kk, yani select tanlanganda bajaradigan ish
   //   .dynamic deb yzilgani bu class degani, dynamic degan classga ega elementda change hodisasi sodir bo'lganda ioshla degani
    // change bu tanlanganda deganimi, change bu event nomi, selectda tanlaganignda change eventi sodir bo'ladi, ha tushundim
@@ -149,12 +149,12 @@ $(document).ready(function(){ // id ishlatsang # bilan, class ishlatsng . bilan
       var dependent = 'region_id';
       var _token = $('input[name="_token"]').val();
       $.ajax({
-        url:"{{route('dynamicdependent.fetch')}}",
+        url:"{{route('dynamicdependent1.fetch')}}",
         method:"POST",
         data:{select:select, value:value, _token:_token, dependent}, // mana bula doim qo`yiladimi
         success:function(result)
         {
-          $('#city').html(result);
+          $('#city_id').html(result);
         }
       })
     }

@@ -20,3 +20,4 @@ class ReportExportController extends Controller
         return $this->excel->download(new ReportExport, 'report.xlsx');
     }
 }
+ 
