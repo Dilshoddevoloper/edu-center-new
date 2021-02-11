@@ -8,16 +8,12 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ReportExportController extends Controller
 {
-    private $excel;
 
-    public function _construct(Excel $excel)
+    public function export() 
     {
-        $this->excel = $excel;
+        ini_set('allow_url_fopen', 1);
+        return Excel::download(new ReportExport, 'report.xlsx');
     }
-
-    public function export()
-    {
-        return $this->excel->download(new ReportExport, 'report.xlsx');
-    }
+    // excelni dokumentatsiyasida dom degan narsani ko`rgandim, pdf, yoki boshqa fayl qilib yuklash un edi
 }
  

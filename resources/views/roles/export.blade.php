@@ -1,6 +1,3 @@
-@extends ('welcome')
-
-@section ('content')
 <table class="table table-striped" border=5px thead-dark  id="employee" cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
     <thead >
       <tr >
@@ -72,17 +69,8 @@
                 <td>{{$report->students_science_9}}</td>
                 <td>{{$report->students_science_id_10}}</td>
                 <td>{{$report->students_science_10}}</td>
-                
-
-
-               
               </tr>
             </tbody>
           @endforeach
     @endif
-    
-
-
 </table>
-
-@endsection
