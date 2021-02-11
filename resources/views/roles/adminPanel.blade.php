@@ -10,6 +10,9 @@
     <div class="mb-3">
         <a href="/report" class="btn btn-primary  active float-left" role="button" aria-pressed="true">hisobot</a>
     </div>
+    <div class="mb-3">
+        <a href="adminpanel-export/pdf" class="btn btn-primary active float-left" role="button" aria-pressed="true">Download PDF</a>
+    </div>
   </div>
 
   <!-- <div class="container"> -->

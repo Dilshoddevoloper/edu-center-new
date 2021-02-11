@@ -1,17 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Regions;
-use DB;
-use Illuminate\Http\Request;
 
-class ReportController extends Controller
+use Illuminate\Http\Request;
+use DB;
+use PDF;
+
+class DynamicPDFController extends Controller
 {
-    public function report() {
-        
+    function index(){
+        $results = $this->get_customer_data();
+        // return view('roles.adminPanel')->with('customer_data',$customer_data);
+
+        return view('roles.adminPanel')->with('results',$results);
+        // return view('roles.report', ['reports' => $result1]);        
     }
-    public function index()
-    {
+
+    function get_customer_data(){
+        // $results = DB::table('edu_centers')
+        //                 ->limit(10)
+        //                 ->get();
         $raw1 = 'count(edu_centers.id) as edu_center_count';
         $result1 = DB::table('regions')
             ->leftJoin('edu_centers', 'edu_centers.region_id', '=', 'regions.id')
@@ -101,12 +109,103 @@ class ReportController extends Controller
                 $result1[$key]->students_science_id_9 = $student1[$key]->students_science_id_9;
                 $result1[$key]->students_science_id_10 = $student1[$key]->students_science_id_10;
 
-
-                
                 $id ++;
             }
+        $results = $result1;
+        return $results;
+    }
 
-            // dd($result1);
-        return view('roles.report', ['reports' => $result1]);
+    function pdf(){
+        
+        $pdf = PDF::loadHTML($this->convert_customer_data_to_html());
+        return $pdf->download('report.pdf');
+    }
+
+    function convert_customer_data_to_html(){
+        $results = $this->get_customer_data();
+
+        // nega edu centerni ma'lumotlari buyerda, hisobotni emas shu edu centerdan masmi hisobot
+        // hisobotni yuklashga edu centerni aloqasi yoq
+        // edu centerlarni yuklab korsataman hisobotni keyin ozing yuklaysan
+        $output = '
+        <table class="table table-striped">
+            <thead>
+                <tr >
+                    <th scope="col"  rowspan="2" style="vertical-align: middle;"> T/R</th>
+                    <th scope="col"  rowspan="2" style="vertical-align: middle;"> Viloyat nomi</th>
+                    <th scope="col"  rowspan="2" style="vertical-align: middle;"> Jami o`quv markazlar soni</th>
+                    <th scope="col"  rowspan="2"  style="vertical-align: middle;"> Jami o`quvchilar soni</th>
+                    <th scope="col"  rowspan="2"  style="vertical-align: middle;"> Jami to`langan summa</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> ona tili va adabiyot</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> matematika</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> fizika</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> ingliz tili</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> biologiya</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> kimyo</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> rus tili</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> tarix</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> huquq</th>
+                    <th scope="col" colspan="2"  style="vertical-align: middle;"> geografiya</th>
+                </tr>
+                <tr>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                    <th scope="col">o`quvchilar soni</th>
+                    <th scope="col">jami to`langan summa</th>
+                </tr>
+            </thead>
+        ';
+
+        foreach($results as $report)
+        {
+            $output .='
+            <tr>
+                <th scope="row">'.$report->id.'</th>
+                <td>'.$report->region_name.'</td>
+                <td>'.$report->edu_center_count.'</td>
+                <td>'.$report->students_count.'</td>
+                <td>'.$report->students_payment_summ.'</td>
+                <td>'.$report->students_science_id_1.'</td>
+                <td>'.$report->students_science_1.'</td>
+                <td>'.$report->students_science_id_2.'</td>
+                <td>'.$report->students_science_2.'</td>
+                <td>'.$report->students_science_id_3.'</td>
+                <td>'.$report->students_science_3.'</td>
+                <td>'.$report->students_science_id_4.'</td>
+                <td>'.$report->students_science_4.'</td>
+                <td>'.$report->students_science_id_5.'</td>
+                <td>'.$report->students_science_5.'</td>
+                <td>'.$report->students_science_id_6.'</td>
+                <td>'.$report->students_science_6.'</td>
+                <td>'.$report->students_science_id_7.'</td>
+                <td>'.$report->students_science_7.'</td>
+                <td>'.$report->students_science_id_8.'</td>
+                <td>'.$report->students_science_8.'</td>
+                <td>'.$report->students_science_id_9.'</td>
+                <td>'.$report->students_science_9.'</td>
+                <td>'.$report->students_science_id_10.'</td>
+                <td>'.$report->students_science_10.'</td>
+            </tr>
+            ';
+        }
+
+        $output .= '</table>';
+        return $output;
     }
 }

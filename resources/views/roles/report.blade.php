@@ -1,6 +1,9 @@
 @extends ('welcome')
 
 @section ('content')
+<div class="mb-3">
+    <a href="adminpanel-export/pdf" class="btn btn-primary active float-left" role="button" aria-pressed="true">Download PDF</a>
+</div>
 <table class="table table-striped" border=5px thead-dark >
     <thead >
       <tr >
@@ -72,10 +75,7 @@
                 <td>{{$report->students_science_9}}</td>
                 <td>{{$report->students_science_id_10}}</td>
                 <td>{{$report->students_science_10}}</td>
-                
-
-
-               
+                          
               </tr>
             </tbody>
           @endforeach
