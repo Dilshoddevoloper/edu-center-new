@@ -39,7 +39,7 @@ Route::get('/adminpanel/{id}','EduCenterController@show');
 
 Route::get('/educenter/{id}','StudentController@show');
 
-Route::resource('student','StudentController');
+// Route::resource('student','StudentController');
 
 
 Route::delete('Student/{id}','StudentController@destroy')->name('Student.destroy'); // manabuyerda katta harflarni kichik harfga amashtirib chiq
@@ -54,7 +54,8 @@ Route::post('dynamic_dependent1/fetch', 'EduCenterController@fetch')->name('dyna
 
 Route::post('dynamic_dependent/fetch', 'StudentController@fetch')->name('dynamicdependent.fetch');
 
-Route::get('/report/export', 'ReportExportController@export');
+Route::get('/report/export', 'ReportExportController@export')->name('report.export');
+Route::get('/report/export', 'ReportExportController@export_view')->name('customers.export_view');
 
 // Route::get('adminpanel', 'DynamicPDFController@index');
 Route::get('adminpanel-export/pdf', 'DynamicPDFController@pdf');

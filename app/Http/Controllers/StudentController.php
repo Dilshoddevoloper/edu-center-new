@@ -42,8 +42,19 @@ class StudentController extends Controller
     public function showindex()
     {
         $user = auth()->user();
-        $students = Student::where('id', $user->student_id)->get();
-        return view('students.showStudent')->with('students', $students );; 
+        $student = Student::where('id', $user->student_id)->first();
+        // dd($student);
+        $region = Regions::where('id', $student->region_id)->first(); 
+        $city = Cities::where('id' , $student->city_id)->first();
+        $student->region;
+        $student->city;
+        // dd($student->toArray()); 
+        
+        return view('students.showStudent', ['student' => $student, 'region' => $region ]);
+    
+        // $user = auth()->user();
+        // $students = Student::where('id', $user->stud ent_id)->get();
+        // return view('students.showStudent')->with('students', $students );; 
     }
     
     public function store(Request $request)
@@ -103,10 +114,8 @@ class StudentController extends Controller
         $student->region;
         $student->city;
         // dd($student->toArray()); 
-        // relation shu uchun kerak
-        // model nomida kiopliok qoshimchasi bo'lmaydi deb aytganman
-        // student degan modelga regionni relationini bglab qoyasan
-        return view('students.showStudent', ['student' => $student, 'region' => $region ]);
+        
+        return view('centers.showStudent', ['student' => $student, 'region' => $region ]);
     }
 
     public function edit($id)

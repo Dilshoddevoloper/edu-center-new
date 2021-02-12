@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Regions;
+namespace App\Exports;
+
+
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\FromCollection;
 use DB;
-use Illuminate\Http\Request;
-use App\Exports\ReportExportView;
-
-class ReportController extends Controller
+class ReportExportView implements FromView, ShouldAutoSize
 {
-    public function report() {
-        
-    }
-
-    public function index()
+    public function view(): View 
     {
         $raw1 = 'count(edu_centers.id) as edu_center_count';
         $result1 = DB::table('regions')
@@ -63,7 +61,7 @@ class ReportController extends Controller
                 SUM(CASE WHEN students.science_id = 8 THEN students.payment_summ ELSE 0 END) AS students_science_8,
                 SUM(CASE WHEN students.science_id = 9 THEN students.payment_summ ELSE 0 END) AS students_science_9,
                 SUM(CASE WHEN students.science_id = 10 THEN students.payment_summ ELSE 0 END) AS students_science_10            
-                    ' ) ) // bittada olsang boladi
+                    ' ) ) 
             ->groupBy('regions.id')
             ->orderBy('regions.c_order')
             ->get();
@@ -99,8 +97,8 @@ class ReportController extends Controller
                 
                 $id ++;
             }
-
-            // dd($result1);
-        return view('roles.report', ['reports' => $result1]);
+        return view('roles.export',[
+            'reports' => $result1
+        ]);
     }
 }
