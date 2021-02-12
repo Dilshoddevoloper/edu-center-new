@@ -1,33 +1,26 @@
 @extends('welcome')
 
 @section ('content')
-    <!-- <div>
-    <p><a href="/adminpanel" class="btn-default"> Go back</a></p>
-    <h3><a href="/adminpanel/{{$EduCenters->id}}">{{$EduCenters->name}}</a></h3>
-    <p>{{$EduCenters->email}}</p>
-    <p>{{$EduCenters->address}}</p>
-    </div> -->
-
+ 
 <div>
-    <div class="mb-3">
-    <a href="{{ url('EduCenter/'.$EduCenters->id.'/edit') }}" class="btn btn-primary  active float-right" role="button" aria-pressed="true" style="margin: 5px;">Update</a>
-    </div>
+    <div class="row">
+        <div class="ml-30" style="margin: 5px;">
+            <a href="{{ url('Student/'.$student->id.'/edit') }}" class="btn btn-primary  active float-right" role="button" aria-pressed="true">Update</a>
+        </div>
 
-    <div class="mb-3" style="margin: 5px">
-        <form method="POST" action="{{ route('EduCenter.destroy', $EduCenters->id) }}" id="post-destroy" style="margin: 5px">
+        <div class="ml-30" style="margin: 5px;">
+            <form method="POST" action="{{ route('Student.destroy', $student->id) }}" id="post-destroy">
             @method('DELETE')
             {{ csrf_field() }}
-            <input type="submit" value="Delete" class="btn  btn-danger active float-right" style="margin: 5px">
-        </form>
-    </div>
+                <input type="submit" value="Delete" class="btn  btn-danger active float-right">
+            </form>
+        </div>
 
-    <div class="mb-3">
-    <a href="/adminpanel" class="btn btn-primary  active float-left" role="button" aria-pressed="true">Go back</a>
+        <div class="mb-3" style="margin: 5px;">
+            <a href="/educenter" class="btn btn-primary  active float-left" role="button" aria-pressed="true">Go back</a>
+        </div>
     </div>
-</div>
-<br>
-<br>
-
+ 
 <style>
  body 
   {
@@ -172,9 +165,9 @@
                     <div class="row m-l-0 m-r-0">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
                             <div class="card-block text-center text-white">
-                                <div class="m-b-25"> <img src="D:\image\for_web\user.jpg" class="img-radius" alt="User-Profile-Image"> </div>
-                                <h6 class="f-w-600">{{$EduCenters->name}} </h6>
-                                <p>EDU CENTER </p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image"> </div>
+                                <h6 class="f-w-600">{{$student->first_name}}  {{$student->last_name}} </h6>
+                                <p>STUDENT </p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -182,28 +175,35 @@
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Personal data</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600"> name:</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->name}}</h6>
+                                        <p class="m-b-10 f-w-600">First name:</p>
+                                        <h6 class="text-muted f-w-400">{{$student->first_name}}</h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Head name:</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->head_name}}</h6>
+                                        <p class="m-b-10 f-w-600">Last name:</p>
+                                        <h6 class="text-muted f-w-400">{{$student->last_name}}</h6>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">Date birth:</p>
+                                        <h6 class="text-muted f-w-400">{{$student->date_birth}}</h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="m-b-10 f-w-600">TIN :</p>
+                                        <h6 class="text-muted f-w-400">{{$student->TIN}}</h6>
                                     </div>
                                 </div>
 
                                 <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Contact information</h6>
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Email:</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->email}}</h6>
+                                        <p class="m-b-10 f-w-600">Tell number:</p>
+                                        <h6 class="text-muted f-w-400">{{$student->tell_number}}</h6>
                                     </div>
                                     <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600"> Tell number :</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->tell_number}}</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">  Edu senter web site :</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->center_site}}</h6>
+                                        <p class="m-b-10 f-w-600">Email :</p>
+                                        <h6 class="text-muted f-w-400">{{$student->email}}</h6>
                                     </div>
                                 </div>
 
@@ -211,17 +211,17 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Region :</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->region->name_en}}</h6>
+                                        <h6 class="text-muted f-w-400">{{$student->region->name_en}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">City :</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->city->name_en}}</h6>
+                                        <h6 class="text-muted f-w-400">{{$student->city->name_en}}</h6>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Address:</p>
-                                        <h6 class="text-muted f-w-400">{{$EduCenters->address}}</h6>
+                                        <h6 class="text-muted f-w-400">{{$student->address}}</h6>
                                     </div>
                                 </div>
                                 
@@ -232,18 +232,18 @@
             </div>
         </div>
     </div>
-</div>    
-        
-        
-        
-        
-       
-       
-        
-        
-   
+</div>
 
 
+      
+      
+      
+      
+      
+      
+      
+      
+      
+</div>  
 
-
-@endsection 
+@endsection
