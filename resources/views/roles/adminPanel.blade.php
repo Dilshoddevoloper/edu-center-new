@@ -2,22 +2,22 @@
 
 @section ('content')
 <h2 align='center'> O`quv markazlar ro`yxati</h2>
-<div>
+<div style="border:5px thead-dark; width: 157%; overflow: scroll; ">
   <div class="row">
-    <div class="mb-3">
+    <div class="mb-3" style="margin: 5px;">
         <a href="/createcenter" class="btn btn-primary  active float-right" role="button" aria-pressed="true">O`quv markaz qo`shish</a>
     </div>
-    <div class="mb-3">
+    <div class="mb-3" style="margin: 5px;">
         <a href="/report" class="btn btn-primary  active float-left" role="button" aria-pressed="true">hisobot</a>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <a href="adminpanel-export/pdf" class="btn btn-primary active float-left" role="button" aria-pressed="true">Download PDF</a>
-    </div>
+    </div> -->
   </div>
 
   <!-- <div class="container"> -->
     <!-- <div class="row"> -->
-      <div class="col-sm-8 blog-main"> 
+      <div class="col-sm-8 blog-main" style="border:5px thead-dark; width: 121%; height: 100%; overflow: scroll; "> 
         <table class="table table-striped">
           <thead>
             <tr>

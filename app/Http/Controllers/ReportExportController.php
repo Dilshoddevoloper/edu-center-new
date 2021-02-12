@@ -8,8 +8,16 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ReportExportController extends Controller
 {
+    private $excel;
+
+    public function _construct(Excel $excel)
+    {
+        $this->excel = $excel;
+    }
+
     public function export()
     {
-        return Excel::download(new ReportExport, 'report.xlsx');
+        return $this->excel->download(new ReportExport, 'report.xlsx');
     }
 }
+ 

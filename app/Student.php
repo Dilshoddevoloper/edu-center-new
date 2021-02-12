@@ -19,10 +19,10 @@ class Student extends Model
     ];
 
     public function region() {
-       return $this->belongsTo('App\Regions'); // keyin togrlab qoyasan
+       return $this->belongsTo('App\Regions'); 
     }
 
     public function city() {
-        return $this->belongsTo('App\Cities'); // keyin togrlab qoyasan
+        return $this->belongsTo('App\Cities'); 
      }
 }

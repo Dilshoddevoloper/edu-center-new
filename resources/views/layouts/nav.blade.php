@@ -1,6 +1,6 @@
-<div class="blog-masthead">
+<div class="blog-masthead" style="margin-bottom: 0rem; padding:0%; margin:0%">
   <div class="container">
-    <nav class="nav blog-nav">
+    <nav class="nav blog-nav" style="margin-bottom: 0rem; padding:0%; margin:0%">
       <a class="nav-link active" href="/">Asosiy sahifa</a>
       <a class="nav-link" href="#">yangiliklar</a>
       <a class="nav-link" href="#">o`quv markazlari</a>

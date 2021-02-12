@@ -47,7 +47,7 @@ class EduCenterController extends Controller
         $data =DB::table('cities')
                 ->where('region_id', $value)
                 ->get();
-                // dd($data);
+            
         $output = '<option value="">Select '.ucfirst($dependent).'</option>';
         foreach($data as $row)
         {
@@ -64,7 +64,6 @@ class EduCenterController extends Controller
         $city = Cities::where('id' , $EduCenters->city_id)->first();
         $EduCenters->region;
         $EduCenters->city;
-        // dd($region);
         return view('centers.showCenter', ['EduCenters' => $EduCenters, 'region' => $region ]);
     }
 
@@ -102,7 +101,7 @@ class EduCenterController extends Controller
             'edu_center_id' => $eduCenter->id, 
             'name' => $request->user_name,
             'login' => $request->login,
-            'password' => bcrypt($request->password) // nimaga buyerga newPassword deb yozgansan
+            'password' => bcrypt($request->password)
             
         ]);
         
