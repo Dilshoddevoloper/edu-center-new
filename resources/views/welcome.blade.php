@@ -36,7 +36,7 @@
         <div class="col-10">
             @yield('content')
         </div>
-        <div class='col-2'>
+        <div class='col-2' style="position: relative;">
             @include('layouts.sidebar')
         </div>
             

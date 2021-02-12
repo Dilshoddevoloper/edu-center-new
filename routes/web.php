@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('adminpanel', 'DynamicPDFController@index');
+
+
 Route::get('/','HomeController@index')->name('home');
 Route::get('/adminpanel','EduCenterController@adminpanel');
 Route::get('/educenter','EduCenterController@index');
@@ -37,8 +40,14 @@ Route::get('/adminpanel/{id}','EduCenterController@show');
 Route::get('/educenter/{id}','StudentController@show');
 
 Route::resource('student','StudentController');
+
+
+Route::delete('Student/{id}','StudentController@destroy')->name('Student.destroy'); // manabuyerda katta harflarni kichik harfga amashtirib chiq
+Route::delete('Student','StudentController@update')->name('Student.update'); // shu yerga ham resource qilsak
+
 Route::delete('Student/{id}','StudentController@destroy')->name('Student.destroy'); 
 Route::delete('Student','StudentController@update')->name('Student.update'); 
+
 Route::get('Student/{id}/edit','StudentController@edit');
 
 Route::post('dynamic_dependent1/fetch', 'EduCenterController@fetch')->name('dynamicdependent1.fetch');
@@ -46,3 +55,6 @@ Route::post('dynamic_dependent1/fetch', 'EduCenterController@fetch')->name('dyna
 Route::post('dynamic_dependent/fetch', 'StudentController@fetch')->name('dynamicdependent.fetch');
 
 Route::get('/report/export', 'ReportExportController@export');
+
+// Route::get('adminpanel', 'DynamicPDFController@index');
+Route::get('adminpanel-export/pdf', 'DynamicPDFController@pdf');
