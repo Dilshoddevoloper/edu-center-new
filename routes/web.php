@@ -25,7 +25,7 @@ Route::get('/logout','SessionsController@destroy');
 Route::get('/createcenter','EduCenterController@createCenter');
 Route::post('/createcenter','EduCenterController@store');
 
-Route::resource('EduCenter','EduCenterController'); // qara buyerda resource qilingani uchun hamma routelarni yozish shart emas
+Route::resource('EduCenter','EduCenterController'); 
 
 Route::get('/createstudent','StudentController@index');
 Route::post('/createstudent','StudentController@store');
@@ -59,3 +59,5 @@ Route::get('/report/export', 'ReportExportController@export_view')->name('custom
 
 // Route::get('adminpanel', 'DynamicPDFController@index');
 Route::get('adminpanel-export/pdf', 'DynamicPDFController@pdf');
+
+Route::get('/homepage', 'HomepageController@index');
