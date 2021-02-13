@@ -10,14 +10,14 @@
 
 <div>
     <div class="mb-3">
-    <a href="{{ url('EduCenter/'.$EduCenters->id.'/edit') }}" class="btn btn-primary  active float-right" role="button" aria-pressed="true">Update</a>
+    <a href="{{ url('EduCenter/'.$EduCenters->id.'/edit') }}" class="btn btn-primary  active float-right" role="button" aria-pressed="true" style="margin: 5px;">Update</a>
     </div>
 
-    <div class="mb-3">
-        <form method="POST" action="{{ route('EduCenter.destroy', $EduCenters->id) }}" id="post-destroy">
+    <div class="mb-3" style="margin: 5px">
+        <form method="POST" action="{{ route('EduCenter.destroy', $EduCenters->id) }}" id="post-destroy" style="margin: 5px">
             @method('DELETE')
             {{ csrf_field() }}
-            <input type="submit" value="Delete" class="btn  btn-danger active float-right">
+            <input type="submit" value="Delete" class="btn  btn-danger active float-right" style="margin: 5px">
         </form>
     </div>
 
