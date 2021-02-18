@@ -18,20 +18,35 @@
   <!-- <div class="container"> -->
     <!-- <div class="row"> -->
       <div class="col-sm-8 blog-main" style="border:5px thead-dark; width: 121%; height: 100%; overflow: scroll; "> 
-        <table class="table table-striped">
+      <div class="table-responsive">
+        <table id="example" class="display table table-bordered table-striped" style="width:100%">
           <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col"> Name</th>
-              <th scope="col"> Email</th>
-              <th scope="col"> Address</th>
-              <th scope="col"> Tell_number</th>
-              <th scope="col"> Edu Center web site</th>
-              <th scope="col"> Edu Center about</th>
-              <th scope="col"> update</th>
-              <th scope="col"> delete</th>
-            </tr>
+              <tr>
+                <th>#</th>
+                <th> Name</th>
+                <th> Email</th>
+                <th> Address</th>
+                <th> Tell_number</th>
+                <th> Edu Center web site</th>
+                <th> Edu Center about</th>
+                <th> update</th>
+                <th> delete</th>
+              </tr>
           </thead>
+          <tfoot style="display: table-header-group;">
+              <tr>
+                <th>#</th>
+                <th class="input" id="input"> Name</th>
+                <th> Email</th>
+                <th> Address</th>
+                <th> Tell_number</th>
+                <th> Edu Center web site</th>
+                <th> Edu Center about</th>
+                <th> update</th>
+                <th> delete</th>
+              </tr>
+          </tfoot>
+          <tbody>
           @if(count($EduCenters))
                 @foreach($EduCenters as $EduCenter)
                   <tbody>
@@ -55,10 +70,42 @@
                   </tbody>
                 @endforeach
           @endif
-          
-        </table> 
+          </tbody>
+
+        </table>
+      </div>
       </div>
     <!-- </div>  -->
   <!-- </div> -->
 </div>
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script> -->
+<!-- <script type="text/javascript">
+        $(document).ready(function() {
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each( function () {
+                var title = $(this).text();
+                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+            } );
+        
+            // DataTable
+            var table = $('#example').DataTable({
+                initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every( function () {
+                        var that = this;
+        
+                        $( 'input', this.footer() ).on( 'keyup change clear', function () {
+                            if ( that.search() !== this.value ) {
+                                that
+                                    .search( this.value )
+                                    .draw();
+                            }
+                        } );
+                    } );
+                }
+            });
+        
+        } );        
+    
+</script> -->
 @endsection 
