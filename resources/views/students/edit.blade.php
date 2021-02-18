@@ -10,7 +10,7 @@
     <div class='row'>
 
     
-     <div class="form-group col">
+      <div class="form-group col">
        <label for="first_name">First Name</label> 
        <input type="text" name="first_name" class="form-control" id="first_name" placeholder="{{$student->first_name}}" required>
       </div>
