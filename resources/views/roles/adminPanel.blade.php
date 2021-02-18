@@ -56,7 +56,8 @@
                 @endforeach
           @endif
           
-        </table> 
+        </table>
+        {{$EduCenters->links() }} 
       </div>
     <!-- </div>  -->
   <!-- </div> -->

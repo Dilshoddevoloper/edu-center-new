@@ -28,7 +28,7 @@ class EduCenterController extends Controller
 
     public function adminpanel() 
     {
-        $EduCenters = EduCenter::all();
+        $EduCenters = EduCenter::paginate(5);
         return view('roles.adminPanel')->with('EduCenters', $EduCenters );
     }
 

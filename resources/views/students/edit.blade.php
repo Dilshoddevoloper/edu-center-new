@@ -3,7 +3,7 @@
 
 @section('content')
 
-<form method="POST"  action="{{ route('student.update', $student->id) }}" id="post-update">
+<form method="POST"  action="{{ route('Student.update', $student->id) }}" id="post-update">
 @method('PUT')
 {{ csrf_field() }}
   <div class="container">

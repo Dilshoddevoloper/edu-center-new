@@ -43,18 +43,11 @@ class StudentController extends Controller
     {
         $user = auth()->user();
         $student = Student::where('id', $user->student_id)->first();
-        // dd($student);
         $region = Regions::where('id', $student->region_id)->first(); 
         $city = Cities::where('id' , $student->city_id)->first();
         $student->region;
         $student->city;
-        // dd($student->toArray()); 
-        
         return view('students.showStudent', ['student' => $student, 'region' => $region ]);
-    
-        // $user = auth()->user();
-        // $students = Student::where('id', $user->stud ent_id)->get();
-        // return view('students.showStudent')->with('students', $students );; 
     }
     
     public function store(Request $request)
@@ -105,22 +98,17 @@ class StudentController extends Controller
     public function show($id)
     {
         $student = Student::find($id);
-        // $region_id = $student->region_id; // mananbuyerda alohida ozgaruvchiga olish shartmas
         $region = Regions::where('id', $student->region_id)->first(); 
         $city = Cities::where('id' , $student->city_id)->first();
-        // tuhsundingmi, ha tushundim
-        // qara buishni laravleozonlashtirib qo'ygan
-        // sen hozir ergionnjni ruchnoy bazadan ozing olding
         $student->region;
         $student->city;
-        // dd($student->toArray()); 
         
         return view('centers.showStudent', ['student' => $student, 'region' => $region ]);
     }
 
     public function edit($id)
     {
-        $student = Student::find($id);
+        $student = Student::find($id)->first();
         return view('students.edit')->with('student', $student);
     }
 
@@ -134,37 +122,11 @@ class StudentController extends Controller
             'email' => 'required',
             'address' => 'required',
             'tell_number' => 'required',
-            // 'name' => 'required',
-            // 'login' => 'required',
-            // 'password' =>'required'
         ]);
-        
-        
-        // $student = Student::update([ 
-        //     'first_name' => $request->first_name,  
-        //     'last_name' => $request->last_name,  
-        //     'date_birth' => $request->date_birth, 
-        //     'TIN' => $request->TIN,
-        //     'email' => $request->email,
-        //     'address' => $request->address,
-        //     'tell_number' => $request->tell_number
-
-        // ]);
 
         $data =$request->all();
         $student=Student::find($id);
-        $student -> update($data);
-
-        // $userr = auth()->user();
-        // $user = User::create([ 
-        //     'edu_center_id' => $userr->edu_center_id,
-        //     'role_id' => 3,
-        //     'student_id' => $student->id, 
-        //     'name' => $request->name,
-        //     'login' => $request->login,
-        //     'password' => bcrypt($request->password)
-        // ]);
-        
+        $student -> update($data);        
         return redirect('/educenter')->with('success','center updated');
     }
 
