@@ -24,12 +24,21 @@ class EduCenterController extends Controller
         }   else {
             return redirect('login');
         }
+
+        
     }
 
     public function adminpanel() 
     {
         $EduCenters = EduCenter::all();
-        return view('roles.adminPanel')->with('EduCenters', $EduCenters );
+
+        $search = EduCenter::where('title', 'LIKE', $request)
+                    ->orWhere('body', 'LIKE', $request)
+                    ->get();
+
+        return view('roles.adminPanel', ['EduCenters' => $EduCenters, 'searches' => $search ]);
+
+
     }
 
     public function createCenter()
