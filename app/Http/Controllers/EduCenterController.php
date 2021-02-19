@@ -26,12 +26,20 @@ class EduCenterController extends Controller
         }
     }
 
-    public function adminpanel() 
+    public function adminpanel(Request $request) 
     {
-        $EduCenters = EduCenter::paginate(5);
         
+       
+        
+        if(isset($request) && !empty($request))
+        {
+            $EduCenters = EduCenter::where('name', 'LIKE', $request->name)
+            ->get();  
+        }  else  {
+            $EduCenters = EduCenter::paginate(5);
+        }
 
-        return view('roles.adminPanel')->with('EduCenters', $EduCenters );
+            return view('roles.adminPanel', ['EduCenters' => $EduCenters ]);
     }
 
     public function createCenter()

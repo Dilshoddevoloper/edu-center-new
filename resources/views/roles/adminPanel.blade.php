@@ -102,7 +102,7 @@
                         <div class="form-group">
                           <div class="form-group">
                             <td>
-                              <button type="submit" class="btn btn-primary  active float-right"> SAVE </button>
+                              <button type="submit" class="btn btn-primary  active float-right"> SEARCH </button>
                             </td>
                           </div>
                         </div>
@@ -110,31 +110,9 @@
                   
                   
                   </form>
-
-                  <!-- <td>    
-                    <input type="text" class="form-control filter-input" data-column="0" placeholder="search id" />
-                  </td>
-                  <td>    
-                    <input type="text" class="form-control filter-input" data-column="1" placeholder="search name" />
-                  </td>
-                  <td>    
-                    <input type="text" class="form-control filter-input" data-column="2" placeholder="search email" />
-                  </td>
-                  <td>    
-                    <input type="text" class="form-control filter-input" data-column="3" placeholder="search address" />
-                  </td>
-                  <td>    
-                    <input type="text" class="form-control filter-input" data-column="4" placeholder="search tel number" />
-                  </td>
-                  <td>    
-                    <input type="text" class="form-control filter-input" data-column="5" placeholder="search web site" />
-                  </td>
-                  <td>    
-                    <input type="text" class="form-control filter-input" data-column="6" placeholder="search about" />
-                  </td> -->
                 </tr>
           </thead>
-          @if(count($EduCenters))
+          <!-- @if(count($EduCenters)) -->
                 @foreach($EduCenters as $EduCenter)
                   <tbody>
                     <tr>
@@ -156,9 +134,8 @@
                     </tr>
                   </tbody>
                 @endforeach
-          @endif
+          <!-- @endif -->
         </table>
-        {{$EduCenters->links() }} 
       </div>
 </div>
 @endsection 
