@@ -24,27 +24,19 @@ class EduCenterController extends Controller
         }   else {
             return redirect('login');
         }
-
-        
     }
 
     public function adminpanel(Request $request) 
     {
-
+        
         if(isset($request) && !empty($request))
         {
-            $EduCenters = EduCenter::where('id', 'LIKE', $request->id)
-                ->orWhere('name', 'LIKE', $request->name)
-                ->orWhere('email', 'LIKE', $EduCenters->email)
-                ->orWhere('address', 'LIKE', $EduCenters->address)
-                ->orWhere('tell_number', 'LIKE', $$EduCenters->name)
-                ->get();
-        }  else{    
+            $EduCenters = EduCenter::where('name', 'LIKE', $request->name)
+            ->get();  
+        }  else  {
             $EduCenters = EduCenter::paginate(5);
         }
-        
-        return view('roles.adminPanel', ['EduCenters' => $EduCenters]);
-
+            return view('roles.adminPanel', ['EduCenters' => $EduCenters ]);
     }
 
     public function createCenter()
