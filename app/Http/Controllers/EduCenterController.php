@@ -31,14 +31,14 @@ class EduCenterController extends Controller
     public function adminpanel(Request $request) 
     {
 
-        if(!empty($request->('value')))
+        if(isset($request) && !empty($request))
         {
-            EduCenter::where('id', 'LIKE', $request->id)
-            ->orWhere('name', 'LIKE', $request->name)
-            ->orWhere('email', 'LIKE', $EduCenters->email)
-            ->orWhere('address', 'LIKE', $EduCenters->address)
-            ->orWhere('tell_number', 'LIKE', $$EduCenters->name)
-            ->get();
+            $EduCenters = EduCenter::where('id', 'LIKE', $request->id)
+                ->orWhere('name', 'LIKE', $request->name)
+                ->orWhere('email', 'LIKE', $EduCenters->email)
+                ->orWhere('address', 'LIKE', $EduCenters->address)
+                ->orWhere('tell_number', 'LIKE', $$EduCenters->name)
+                ->get();
         }  else{    
             $EduCenters = EduCenter::paginate(5);
         }
