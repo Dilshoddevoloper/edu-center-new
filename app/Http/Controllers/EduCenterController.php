@@ -30,21 +30,20 @@ class EduCenterController extends Controller
 
     public function adminpanel(Request $request) 
     {
-        $EduCenters = EduCenter::all();
 
-        $search = EduCenter::where('id', 'LIKE', $EduCenters->id)
-                    ->orWhere('name', 'LIKE', $EduCenters->name)
-                    ->orWhere('email', 'LIKE', $EduCenters->email)
-                    ->orWhere('address', 'LIKE', $EduCenters->address)
-                    ->orWhere('tell_number', 'LIKE', $$EduCenters->name)
-
-                    ->get();
-
-
-
-        $EduCenters = EduCenter::paginate(5);
+        if(!empty($request->('value')))
+        {
+            EduCenter::where('id', 'LIKE', $request->id)
+            ->orWhere('name', 'LIKE', $request->name)
+            ->orWhere('email', 'LIKE', $EduCenters->email)
+            ->orWhere('address', 'LIKE', $EduCenters->address)
+            ->orWhere('tell_number', 'LIKE', $$EduCenters->name)
+                ->get();
+        }  else{    
+            $EduCenters = EduCenter::paginate(5);
+        }
         
-        return view('roles.adminPanel', ['EduCenters' => $EduCenters, 'searches' => $search ]);
+        return view('roles.adminPanel', ['EduCenters' => $EduCenters]);
 
     }
 
