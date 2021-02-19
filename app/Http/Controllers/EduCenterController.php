@@ -28,6 +28,7 @@ class EduCenterController extends Controller
 
     public function adminpanel(Request $request) 
     {
+<<<<<<< HEAD
         
        
         
@@ -38,7 +39,6 @@ class EduCenterController extends Controller
         }  else  {
             $EduCenters = EduCenter::paginate(5);
         }
-
             return view('roles.adminPanel', ['EduCenters' => $EduCenters ]);
     }
 
