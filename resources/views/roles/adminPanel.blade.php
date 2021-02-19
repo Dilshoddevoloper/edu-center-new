@@ -26,18 +26,21 @@
               <th scope="col" rolspan="2" style="vertical-align: middle;"> delete</th>
             </tr>
                 <tr>
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}" >
                     {{ csrf_field() }}
                     <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
                             <td>
-                              <input type="text" name="id" class="form-control" id="id" placeholder="id" >
+                              <input type="text" name="id" class="form-control"  placeholder="Id">
                             </td>
                           </div>
                         </div>
-                      </div>
+                    </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}" role="search">
+                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -47,7 +50,10 @@
                           </div>
                         </div>
                       </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -57,7 +63,10 @@
                           </div>
                         </div>
                       </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -67,7 +76,10 @@
                           </div>
                         </div>
                       </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -77,7 +89,10 @@
                           </div>
                         </div>
                       </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -87,7 +102,10 @@
                           </div>
                         </div>
                       </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -97,7 +115,10 @@
                           </div>
                         </div>
                       </div>
+                  </form>
 
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
                       <div class="">
                         <div class="form-group">
                           <div class="form-group">
@@ -106,9 +127,7 @@
                             </td>
                           </div>
                         </div>
-                      </div>
-                  
-                  
+                      </div>         
                   </form>
                 </tr>
           </thead>
@@ -138,4 +157,8 @@
         </table>
       </div>
 </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> e6917c89682d88ae4bd8322df8d511ef1c41ece3
 @endsection 
