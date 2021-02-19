@@ -38,7 +38,7 @@ class EduCenterController extends Controller
             ->orWhere('email', 'LIKE', $EduCenters->email)
             ->orWhere('address', 'LIKE', $EduCenters->address)
             ->orWhere('tell_number', 'LIKE', $$EduCenters->name)
-                ->get();
+            ->get();
         }  else{    
             $EduCenters = EduCenter::paginate(5);
         }
