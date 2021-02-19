@@ -28,15 +28,45 @@ class EduCenterController extends Controller
 
     public function adminpanel(Request $request) 
     {
-<<<<<<< HEAD
         
        
         
-        if(isset($request) && !empty($request))
+        if(isset($request->name) && !empty($request->name))
         {
             $EduCenters = EduCenter::where('name', 'LIKE', $request->name)
             ->get();  
-        }  else  {
+        } 
+        elseif(isset($request->id) && !empty($request->id)) 
+        {
+            $EduCenters = EduCenter::where('id', '=', $request->id)
+            ->get();
+        } 
+        elseif(isset($request->email) && !empty($request->email)) 
+        {
+            $EduCenters = EduCenter::where('email', 'LIKE', $request->email)
+            ->get();
+        } 
+        elseif(isset($request->address) && !empty($request->address)) 
+        {
+            $EduCenters = EduCenter::where('address', 'LIKE', $request->address)
+            ->get();
+        }
+        elseif(isset($request->tell_number) && !empty($request->tell_number)) 
+        {
+            $EduCenters = EduCenter::where('tell_number', 'LIKE', $request->tell_number)
+            ->get();
+        } 
+        elseif(isset($request->web_site) && !empty($request->web_site)) 
+        {
+            $EduCenters = EduCenter::where('center_site', 'LIKE', $request->web_site)
+            ->get();
+        } elseif(isset($request->about) && !empty($request->about)) 
+        {
+            $EduCenters = EduCenter::where('center_about', 'LIKE', $request->about)
+            ->get();
+        }
+        else 
+        {
             $EduCenters = EduCenter::paginate(5);
         }
             return view('roles.adminPanel', ['EduCenters' => $EduCenters ]);
