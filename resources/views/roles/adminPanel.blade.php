@@ -10,43 +10,149 @@
     <div class="mb-3" style="margin: 5px;">
         <a href="/report" class="btn btn-primary  active float-left" role="button" aria-pressed="true">hisobot</a>
     </div>
-    <!-- <div class="mb-3">
-        <a href="adminpanel-export/pdf" class="btn btn-primary active float-left" role="button" aria-pressed="true">Download PDF</a>
-    </div> -->
   </div>
-
-  <!-- <div class="container"> -->
-    <!-- <div class="row"> -->
       <div class="col-sm-8 blog-main" style="border:5px thead-dark; width: 121%; height: 100%; overflow: scroll; "> 
-      <div class="table-responsive">
-        <table id="example" class="display table table-bordered table-striped" style="width:100%">
+        <table class="table table-striped">
           <thead>
-              <tr>
-                <th>#</th>
-                <th> Name</th>
-                <th> Email</th>
-                <th> Address</th>
-                <th> Tell_number</th>
-                <th> Edu Center web site</th>
-                <th> Edu Center about</th>
-                <th> update</th>
-                <th> delete</th>
-              </tr>
+            <tr>
+              <th scope="col" rolspan="2"  style="vertical-align: middle;" >#</th>
+              <th scope="col"  rolspan="2"  style="vertical-align: middle;" > Name</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> Email</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> Address</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> Tell_number</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> Edu Center web site</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> Edu Center about</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> update</th>
+              <th scope="col" rolspan="2" style="vertical-align: middle;"> delete</th>
+            </tr>
+                <tr>
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}" >
+                    {{ csrf_field() }}
+                    <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="text" name="id" class="form-control"  placeholder="Id">
+                            </td>
+                          </div>
+                        </div>
+                    </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}" role="search">
+                    {{ csrf_field() }}
+                      <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="text" name="name" class="form-control" id="name" placeholder="Name" >
+                            </td>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
+                      <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="email" name="email" class="form-control" id="email" placeholder="email" >
+                            </td>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
+                      <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="text" name="address" class="form-control" id="address" placeholder="address" >
+                            </td>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
+                      <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="text" name="tell_number" class="form-control" id="tell_number" placeholder="tell_number" >
+                            </td>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
+                      <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="text" name="web_site" class="form-control" id="web_site" placeholder="web_site" >
+                            </td>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
+                      <div class="container">
+                        <div class='row'>  
+                          <div class="form-group col">
+                            <td>
+                              <input type="text" name="about" class="form-control" id="about" placeholder="about" >
+                            </td>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
+                    {{ csrf_field() }}
+                      <div class="">
+                        <div class="form-group">
+                          <div class="form-group">
+                            <td>
+                              <button type="submit" class="btn btn-primary  active float-right"> SEARCH </button>
+                            </td>
+                          </div>
+                        </div>
+                      </div>         
+                  </form>
+
+                  <!-- <td>    
+                    <input type="text" class="form-control filter-input" data-column="0" placeholder="search id" />
+                  </td>
+                  <td>    
+                    <input type="text" class="form-control filter-input" data-column="1" placeholder="search name" />
+                  </td>
+                  <td>    
+                    <input type="text" class="form-control filter-input" data-column="2" placeholder="search email" />
+                  </td>
+                  <td>    
+                    <input type="text" class="form-control filter-input" data-column="3" placeholder="search address" />
+                  </td>
+                  <td>    
+                    <input type="text" class="form-control filter-input" data-column="4" placeholder="search tel number" />
+                  </td>
+                  <td>    
+                    <input type="text" class="form-control filter-input" data-column="5" placeholder="search web site" />
+                  </td>
+                  <td>    
+                    <input type="text" class="form-control filter-input" data-column="6" placeholder="search about" />
+                  </td> -->
+                </tr>
           </thead>
-          <tfoot style="display: table-header-group;">
-              <tr>
-                <th>#</th>
-                <th class="input" id="input"> Name</th>
-                <th> Email</th>
-                <th> Address</th>
-                <th> Tell_number</th>
-                <th> Edu Center web site</th>
-                <th> Edu Center about</th>
-                <th> update</th>
-                <th> delete</th>
-              </tr>
-          </tfoot>
-          <tbody>
           @if(count($EduCenters))
                 @foreach($EduCenters as $EduCenter)
                   <tbody>
@@ -70,13 +176,12 @@
                   </tbody>
                 @endforeach
           @endif
-          </tbody>
-
         </table>
+        {{$EduCenters->links() }} 
       </div>
-      </div>
-    <!-- </div>  -->
-  <!-- </div> -->
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e6917c89682d88ae4bd8322df8d511ef1c41ece3
 @endsection 

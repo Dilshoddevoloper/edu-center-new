@@ -14,7 +14,7 @@ Route::get('adminpanel', 'DynamicPDFController@index');
 
 
 Route::get('/','HomeController@index')->name('home');
-Route::get('/adminpanel','EduCenterController@adminpanel');
+Route::get('/adminpanel','EduCenterController@adminpanel')->name('educenter.adminpanel');
 Route::get('/educenter','EduCenterController@index');
 
 
