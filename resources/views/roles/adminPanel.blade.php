@@ -26,21 +26,18 @@
               <th scope="col" rolspan="2" style="vertical-align: middle;"> delete</th>
             </tr>
                 <tr>
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}" >
+                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
                     {{ csrf_field() }}
                     <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
                             <td>
-                              <input type="text" name="id" class="form-control"  placeholder="Id">
+                              <input type="text" name="id" class="form-control" id="id" placeholder="id" >
                             </td>
                           </div>
                         </div>
-                    </div>
-                  </form>
+                      </div>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}" role="search">
-                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -50,10 +47,7 @@
                           </div>
                         </div>
                       </div>
-                  </form>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
-                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -63,10 +57,7 @@
                           </div>
                         </div>
                       </div>
-                  </form>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
-                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -76,10 +67,7 @@
                           </div>
                         </div>
                       </div>
-                  </form>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
-                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -89,10 +77,7 @@
                           </div>
                         </div>
                       </div>
-                  </form>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
-                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -102,10 +87,7 @@
                           </div>
                         </div>
                       </div>
-                  </form>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
-                    {{ csrf_field() }}
                       <div class="container">
                         <div class='row'>  
                           <div class="form-group col">
@@ -115,10 +97,7 @@
                           </div>
                         </div>
                       </div>
-                  </form>
 
-                  <form method="GET" action="{{ route('educenter.adminpanel')}}">
-                    {{ csrf_field() }}
                       <div class="">
                         <div class="form-group">
                           <div class="form-group">
@@ -127,24 +106,26 @@
                             </td>
                           </div>
                         </div>
-                      </div>         
+                      </div>
+                  
+                  
                   </form>
                 </tr>
           </thead>
-          <!-- @if(count($EduCenters)) -->
-                @foreach($EduCenters as $EduCenter)
+          <!-- @if(count($eduCenters)) -->
+                @foreach($eduCenters as $eduCenter)
                   <tbody>
                     <tr>
-                      <th scope="row">{{$EduCenter ->id}}</th>
-                      <td><a href="/adminpanel/{{$EduCenter ->id}}">{{$EduCenter->name}}</a></td>
-                      <td>{{$EduCenter->email}}</td>
-                      <td>{{$EduCenter->address}}</td>
-                      <td>{{$EduCenter->tell_number}}</td>
-                      <td>{{$EduCenter->center_site}}</td>
-                      <td>{{$EduCenter->center_about}}</td>
-                      <td><a href="{{ url('EduCenter/'.$EduCenter->id.'/edit') }}" class="btn btn-primary  active float-right" role="button" aria-pressed="true">Update</a></td>
+                      <th scope="row">{{$eduCenter ->id}}</th>  <!--ozgaruvchi nomi katta harf bilan boshlanmaydi-->
+                      <td><a href="/adminpanel/{{$eduCenter ->id}}">{{$eduCenter->name}}</a></td>
+                      <td>{{$eduCenter->email}}</td>
+                      <td>{{$eduCenter->address}}</td>
+                      <td>{{$eduCenter->tell_number}}</td>
+                      <td>{{$eduCenter->center_site}}</td>
+                      <td>{{$eduCenter->center_about}}</td>
+                      <td><a href="{{ url('EduCenter/'.$eduCenter->id.'/edit') }}" class="btn btn-primary  active float-right" role="button" aria-pressed="true">Update</a></td>
                       <td>
-                        <form method="POST" action="{{ route('EduCenter.destroy', $EduCenter->id) }}" id="post-destroy">
+                        <form method="POST" action="{{ route('EduCenter.destroy', $eduCenter->id) }}" id="post-destroy">
                           @method('DELETE')
                           {{ csrf_field() }}
                           <input type="submit" value="Delete" class="btn  btn-danger active float-right">
@@ -155,10 +136,7 @@
                 @endforeach
           <!-- @endif -->
         </table>
+        {{$eduCenters->links() }} 
       </div>
 </div>
-<!-- <<<<<<< HEAD
-
-=======
->>>>>>> e6917c89682d88ae4bd8322df8d511ef1c41ece3 -->
 @endsection 

@@ -28,15 +28,46 @@ class EduCenterController extends Controller
 
     public function adminpanel(Request $request) 
     {
-        
-        if(isset($request) && !empty($request))
+        // deyarli togri faqat kichik xato bor;
+        $query  = EduCenter::query();
+               
+        if(isset($request->name) && !empty($request->name))
         {
-            $EduCenters = EduCenter::where('name', 'LIKE', $request->name)
-            ->get();  
-        }  else  {
-            $EduCenters = EduCenter::paginate(5);
+            $query = $query->where('name', 'like', '%' . $request->name . '%' );  
+        } 
+
+        if(isset($request->id) && !empty($request->id)) 
+        {
+            $query = $query->where('id', '=', $request->id);
+        } 
+
+        if(isset($request->email) && !empty($request->email)) 
+        {
+            $query = $query->where('email', 'LIKE', '%' . $request->email . '%');
         }
-            return view('roles.adminPanel', ['EduCenters' => $EduCenters ]);
+
+        if(isset($request->address) && !empty($request->address)) 
+        {
+            $query = $query->where('address', 'LIKE', '%' . $request->address . '%');
+        }
+
+        if(isset($request->tell_number) && !empty($request->tell_number)) 
+        {
+            $query = $query->where('tell_number', 'LIKE', '%' . $request->tell_number . '%');
+        } 
+
+        if(isset($request->web_site) && !empty($request->web_site)) 
+        {
+            $query = EduCenter::where('center_site', 'LIKE', '%' . $request->web_site . '%' );
+        } 
+        if(isset($request->about) && !empty($request->about)) 
+        {
+            $query = $query->where('center_about', 'LIKE', '%' . $request->about . '%');
+        }
+
+        $edu_centers = $query->paginate(5);
+
+        return view('roles.adminPanel', ['eduCenters' => $edu_centers ]);
     }
 
     public function createCenter()
