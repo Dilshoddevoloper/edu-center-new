@@ -16,7 +16,7 @@
           <thead>
             <tr>
               <th scope="col" rolspan="2"  style="vertical-align: middle;" >#</th>
-              <th scope="col"  rolspan="2"  style="vertical-align: middle;" > Name</th>
+              <th scope="col"  rolspan="2"  style="vertical-align: middle;" >Name</th>
               <th scope="col" rolspan="2" style="vertical-align: middle;"> Email</th>
               <th scope="col" rolspan="2" style="vertical-align: middle;"> Address</th>
               <th scope="col" rolspan="2" style="vertical-align: middle;"> Tell_number</th>
@@ -28,87 +28,37 @@
                 <tr>
                   <form method="GET" action="{{ route('educenter.adminpanel')}}">
                     {{ csrf_field() }}
-                    <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="text" name="id" class="form-control" id="id" placeholder="id" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Name" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="email" name="email" class="form-control" id="email" placeholder="email" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="text" name="address" class="form-control" id="address" placeholder="address" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="text" name="tell_number" class="form-control" id="tell_number" placeholder="tell_number" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="text" name="web_site" class="form-control" id="web_site" placeholder="web_site" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="container">
-                        <div class='row'>  
-                          <div class="form-group col">
-                            <td>
-                              <input type="text" name="about" class="form-control" id="about" placeholder="about" >
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="">
-                        <div class="form-group">
-                          <div class="form-group">
-                            <td>
-                              <button type="submit" class="btn btn-primary  active float-right"> SEARCH </button>
-                            </td>
-                          </div>
-                        </div>
-                      </div>
-                  
-                  
+                  <td>
+                    <input type="text" name="id" class="form-control" id="id" placeholder="id" >
+                  </td>       
+          
+                  <td>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Name" >
+                  </td>
+                             
+                  <td>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="email" >
+                  </td>
+                 
+                  <td>
+                    <input type="text" name="address" class="form-control" id="address" placeholder="address" >
+                  </td>
+                        
+                  <td>
+                    <input type="text" name="tell_number" class="form-control" id="tell_number" placeholder="tell_number" >
+                  </td>
+                    
+                  <td>
+                    <input type="text" name="web_site" class="form-control" id="web_site" placeholder="web_site" >
+                  </td>
+                          
+                  <td>
+                    <input type="text" name="about" class="form-control" id="about" placeholder="about" >
+                  </td>
+                          
+                  <td>
+                    <button type="submit" class="btn btn-primary  active float-right"> SEARCH </button>
+                  </td>
                   </form>
                 </tr>
           </thead>
@@ -116,7 +66,7 @@
                 @foreach($eduCenters as $eduCenter)
                   <tbody>
                     <tr>
-                      <th scope="row">{{$eduCenter ->id}}</th>  <!--ozgaruvchi nomi katta harf bilan boshlanmaydi-->
+                      <th scope="row">{{$eduCenter ->id}}</th>  
                       <td><a href="/adminpanel/{{$eduCenter ->id}}">{{$eduCenter->name}}</a></td>
                       <td>{{$eduCenter->email}}</td>
                       <td>{{$eduCenter->address}}</td>

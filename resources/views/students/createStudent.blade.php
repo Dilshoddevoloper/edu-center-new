@@ -6,7 +6,7 @@
 <form method="POST" action="/createstudent">
             {{ csrf_field() }}
   <div class="container">
-    <h3>Shaxsiy malumotlar</h3>
+    <h3>Personal information</h3>
     <br>
 
 
@@ -51,7 +51,7 @@
 
     </div>
 
-    <h3>Aloqa malumotlari</h3>
+    <h3>Contact information</h3>
     <br>
 
     <div class="row">
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    <h3>Hudud  malumotlari</h3>
+    <h3>Territorial data</h3>
     <br>
 
     <div class="row">
@@ -102,7 +102,7 @@
 
     </div>
     
-    <h3>Foydalanuvchi  malumotlari</h3>
+    <h3>User data</h3>
     <br> 
   
   <div class="row">
