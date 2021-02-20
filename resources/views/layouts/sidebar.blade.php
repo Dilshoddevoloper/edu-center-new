@@ -1,6 +1,6 @@
 <div class="col" style="position: absolute; top:-10px;">
     <div class="card bg-light mb-3">
-    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Turlari</div>
+    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Types</div>
     <ul class="list-group category_block">
         <li class="list-group-item"><a href="category.html">Cras justo odio</a></li>
         <li class="list-group-item"><a href="category.html">Dapibus ac facilisis in</a></li>
@@ -10,7 +10,7 @@
     </ul>
     </div>
     <div class="card bg-light mb-3">
-        <div class="card-header bg-success text-white text-uppercase">Oxirgi Qo'shilgan</div>
+        <div class="card-header bg-success text-white text-uppercase">Last Added</div>
         <div class="card-body" >
             <img class="img-fluid" src="https://dummyimage.com/600x400/55595c/fff" />
             <h5 class="card-title" padding=10px><a href="product.html" title="View Product">Product title</a></h5>

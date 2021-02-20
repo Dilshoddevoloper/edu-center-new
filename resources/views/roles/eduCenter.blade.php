@@ -1,12 +1,12 @@
 @extends ('welcome')
 
 @section ('content')
-<h2 align='center'> "{{ Auth::user()->name }}" o`quv markazi markazi o`quvchilari ro`yxati</h2>
+<h2 align='center'> "{{ Auth::user()->name }}" list of students of the training center</h2>
 
 
 <div style="width: 103.5%; overflow: scroll;">
   <div class="mb-3" style="margin: 5px;">
-    <a href="/createstudent" class="btn btn-primary active float-right" role="button" aria-pressed="true">O`quvchi qo`shish</a>
+    <a href="/createstudent" class="btn btn-primary active float-right" role="button" aria-pressed="true">Add students</a>
   </div>
 
   <table class="table table-striped">

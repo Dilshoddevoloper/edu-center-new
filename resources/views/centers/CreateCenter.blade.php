@@ -6,7 +6,7 @@
 <form method="POST" action="/createcenter">
             {{ csrf_field() }} 
   <div class="container">
-    <h3>Shaxsiy malumotlar</h3>
+    <h3>Personal information</h3>
     <br>
 
 
@@ -23,7 +23,7 @@
     </div>
     
     <br>
-    <h3>Aloqa malumotlari</h3>
+    <h3>Contact information</h3>
     <br>
     
     <div class="row">
@@ -49,12 +49,11 @@
     
     </div>
     <br>
-    <h3>Hudud  malumotlari</h3>
+    <h3>Territorial data</h3>
     <br>
 
     <div class='row'>  
       <div class="container box">
-        <h3 align="center">Ajax Dynamic Dependent</h3> <br />
         <div class="form-group">
           <select name="region_id" id="region_id" class="form-control input-lg" data-dependent="city">
             <option value=""> Select region</option>
@@ -85,7 +84,7 @@
       
     </div>
     <br>
-    <h3>Foydalanuvchi  malumotlari</h3>
+    <h3>User data</h3>
     <br>  
 
     <div class="row">
@@ -128,20 +127,8 @@
 </form>
 <script>
 
-$(document).ready(function(){ // id ishlatsang # bilan, class ishlatsng . bilan
-  $('#region_id').change(function(){ // manabuyerda yozilgan $('.dynamic).change  nima deb oylaysan, 
-  // anig`ini bilmadim, balki dinamik malumotku bu, shu tanlanganda degani bo`lsa kk, yani select tanlanganda bajaradigan ish
-  //   .dynamic deb yzilgani bu class degani, dynamic degan classga ega elementda change hodisasi sodir bo'lganda ioshla degani
-   // change bu tanlanganda deganimi, change bu event nomi, selectda tanlaganignda change eventi sodir bo'ladi, ha tushundim
-   // qani dynamic degan class, bilmadim 
-  //  console.log('select tanlandi!!!')// xop bu nima qilishi kerak
-  // seelct tanlanganda tanlangan regionni id sini olib ,citydagi shu region_id ga teng name_uz larini olib kelishi kk
-    // toliq yoz, cities table dagi shu region id siga teng bo`lgan region_id larni olishi kerak va shu region_id larni name_uz ustunini selectda chiqarishi kerak
-   //  interneting yaxshimas
-   // region id siga teng bo`lgan region_id larni, bu nima degani regions tabledagi id bilan cities tabledagi region_is ni taqqoslashimiz kerak
-   // keyin mos kelganini name_us ustunini selectda chiqarishimiz kerak
-   // masalan qoraqalpogistonni tanladi deylik, nima bolishi kerak shunda
-   // qoraqoalpoqni idsi 8, endi cities tableda region_id 8 bo`lganlarni chaqirib olamiz va shularni name_uz ustunini chiqaramiz
+$(document).ready(function(){ 
+  $('#region_id').change(function(){ 
     if($(this).val() != '')
     {
       var select = $(this).attr("id");
@@ -151,7 +138,7 @@ $(document).ready(function(){ // id ishlatsang # bilan, class ishlatsng . bilan
       $.ajax({
         url:"{{route('dynamicdependent1.fetch')}}",
         method:"POST",
-        data:{select:select, value:value, _token:_token, dependent}, // mana bula doim qo`yiladimi
+        data:{select:select, value:value, _token:_token, dependent}, 
         success:function(result)
         {
           $('#city_id').html(result);
